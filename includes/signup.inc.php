@@ -12,17 +12,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
        
        
        // ERROR HNADLERS
+
+       $errors = [];
+
        if (is_input_empty($username, $pwd, $email)) {
-        # code...
+        $errors["empty_input"] = "Fill in all fields!";
        }
 
         if (is_email_invalid($email)) {
-        # code...
+                $errors["invalid_email"] = "Invalid email used!";
        }
 
-        if (is_username_taken(object $pdo, string $username)) {
-        # code...
+        if (is_username_taken( $pdo,  $username)) {
+                $errors["username_taken"] = "Username already taken!";
        }
+           if (is_email_registered( $pdo, $email)) {
+                $errors["email_used"] = "Email already registered!";
+       }
+
 
 
     } catch (PDOException $e) {
