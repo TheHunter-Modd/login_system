@@ -35,8 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
        if ($errors) {
         $_SESSION['errors_signup'] = $errors;
         header("Location: ../index.php");
-        exit();
+        die();
        }
+
+       create_user($pdo, $username, $pwd, $email);
+
+       header("Location: ../index.php?signup=success");
+
+       $pdo = null;
+       $stmt = null;
+       die();
 
 
 
