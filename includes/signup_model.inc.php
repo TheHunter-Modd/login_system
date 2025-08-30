@@ -1,7 +1,7 @@
 <?php
 //interact only with db
 
-declare(strict_type=1);
+declare(strict_types=1);
 
 
 function get_username(object $pdo, string $username) {

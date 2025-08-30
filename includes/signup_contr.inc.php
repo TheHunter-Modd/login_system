@@ -1,7 +1,7 @@
 <?php
 
 
-declare(strict_type=1);
+declare(strict_types=1);
 
 
 function is_input_empty(string $username, string $pwd, string $email) {
