@@ -30,6 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $errors["email_used"] = "Email already registered!";
        }
 
+        require_once 'config_session.inc.php';   
+
+       if ($errors) {
+        $_SESSION['errors_signup'] = $errors;
+        header("Location: ../index.php");
+        exit();
+       }
+
 
 
     } catch (PDOException $e) {
