@@ -1,6 +1,7 @@
 <?php
 require_once 'includes/config_session.inc.php';
 require_once 'includes/signup_view.inc.php';
+require_once 'includes/login_view.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,15 @@ require_once 'includes/signup_view.inc.php';
     <title>Document</title>
 </head>
 <body>
-    <h3 class="heading">Login</h3>
+
+  <h3>
+    <?php output_username(); 
+    ?>
+  </h3>
+
+  <?php
+  if (!isset($_SESSION['user_id'])) {?>
+        <h3 class="heading">Login</h3>
 
 <div class="container">
   <div class="row justify-content-center">
@@ -35,6 +44,18 @@ require_once 'includes/signup_view.inc.php';
     </div>
   </div>
 </div>
+   <?php }?>
+
+    
+
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-4">
+    <?php
+    Check_login_errors();
+    ?>
+  
+  </div>
+</div>
 
 <h3 class="heading">Sign Up</h3>
 
@@ -43,7 +64,7 @@ require_once 'includes/signup_view.inc.php';
     <div class="col-md-6 col-lg-4"> <!-- Adjust width here -->
       
       <form class="row g-3" action="includes/signup.inc.php" method="post">
-        
+
         <?php 
         signup_inputs(); 
         ?>
@@ -71,10 +92,24 @@ require_once 'includes/signup_view.inc.php';
     <?php
     Check_signup_errors();
     ?>
-  
   </div>
 </div>
+</div>
 
+    <h3 class="heading">Logout</h3>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4"> <!-- Adjust width here -->
+      
+      <form class="row g-3" action="includes/logout.inc.php" method="post">
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-primary">Logout</button>
+        </div>
+      </form>
+      
+    </div>
+  </div>
 </div>
 
 </body>
