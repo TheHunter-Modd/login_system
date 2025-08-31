@@ -43,14 +43,19 @@ require_once 'includes/signup_view.inc.php';
     <div class="col-md-6 col-lg-4"> <!-- Adjust width here -->
       
       <form class="row g-3" action="includes/signup.inc.php" method="post">
+        
+        <?php 
+        signup_inputs(); 
+        ?>
+
         <div class="col-12">
-          <input type="text" name="username" class="form-control" placeholder="Username">
+<!-- input username--> 
         </div>
         <div class="col-12">
-          <input type="password" name="password" class="form-control" placeholder="Password">
+          <!-- input password-->
         </div>
         <div class="col-12">
-          <input type="email" name="email" class="form-control" placeholder="E-mail">
+          <!-- input email-->
         </div>
         <div class="col-12 text-center">
           <button type="submit" class="btn btn-primary">Sign Up</button>

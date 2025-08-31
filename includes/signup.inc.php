@@ -34,8 +34,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
        if ($errors) {
         $_SESSION['errors_signup'] = $errors;
+
+        // Preserve user input except password
+        $signupData = [
+            'username' => $username,
+            'email' => $email
+        ];
+        $_SESSION['signup_data'] = $signupData;
+
         header("Location: ../index.php");
         die();
+
        }
 
        create_user($pdo, $username, $pwd, $email);
