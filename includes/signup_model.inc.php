@@ -27,7 +27,7 @@ function get_email(object $pdo, string $email) {
 }
 
 function set_user(object $pdo, string $username, string $pwd, string $email) {
-    $query = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email);";
+    $query = "INSERT INTO users (username, pwd, email) VALUES (:username, :pwd, :email);";
     $stmt = $pdo->prepare($query);
 
     $options = [
@@ -37,7 +37,7 @@ function set_user(object $pdo, string $username, string $pwd, string $email) {
     $hashedPwd = password_hash($pwd, PASSWORD_BCRYPT, $options);
 
     $stmt->bindParam(":username", $username);
-    $stmt->bindParam(":password", $hashedPwd);
+    $stmt->bindParam(":pwd", $hashedPwd);
     $stmt->bindParam(":email", $email);
     $stmt->execute();
 }
