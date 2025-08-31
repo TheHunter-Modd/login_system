@@ -61,9 +61,16 @@ require_once 'includes/signup_view.inc.php';
   </div>
 </div>
 
-<?php
-Check_signup_errors();
-?>
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-4">
+    <?php
+    Check_signup_errors();
+    ?>
+  
+  </div>
+</div>
+
+</div>
 
 </body>
 </html>
