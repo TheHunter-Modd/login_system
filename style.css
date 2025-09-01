@@ -4,7 +4,7 @@ h3.heading {
   font-weight: bold;
 }
 
-/* login page styles */
+/* login & signup styles */
 
 p.welcome-message {
   text-align: center;   /* center horizontally */
@@ -28,5 +28,4 @@ p.form-success{
   margin-top: 10px;    /* space above the message */
 }
 
-/* signup page styles */
 
